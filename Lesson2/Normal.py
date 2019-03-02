@@ -52,7 +52,7 @@ print(str_date)
 import random
 n = int(input('Введте количество элементов списка:'))
 list_1 = []
-for i in range(n+1):
+for i in range(n):
     list_1.append(random.randint(-100,100))
 print(list_1)
 
