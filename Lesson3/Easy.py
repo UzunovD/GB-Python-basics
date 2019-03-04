@@ -1,5 +1,6 @@
 __author__ = 'Узунов Дмитрий'
 
+
 # EASY
 
 # Задание-1:
@@ -7,6 +8,7 @@ __author__ = 'Узунов Дмитрий'
 # до кол-ва знаков (кол-во знаков передается вторым аргументом).
 # Округление должно происходить по математическим правилам (0.6 --> 1, 0.4 --> 0).
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
+
 
 def user_round(numb, round_):
     '''
@@ -55,6 +57,7 @@ def user_round(numb, round_):
 # Билет считается счастливым, если сумма его первых и последних цифр равны.
 # !!!P.S.: функция не должна НИЧЕГО print'ить
 
+
 def lucky(ticket):
     '''
     Определяет, является ли билет счастливым. Билет считается счастливым, если
@@ -73,10 +76,8 @@ def lucky(ticket):
 
         ticket = str(ticket)
         left = sum([int(i) for i in ticket[0:(int(len(ticket) / 2))]])
-        right = sum([int(i)for i in ticket[(int(len(ticket) / 2)):]])
+        right = sum([int(i) for i in ticket[(int(len(ticket) / 2)):]])
 
         if left != right:
             luck = False
         return luck
-
-
