@@ -58,23 +58,25 @@ def user_round(numb, round_):
 def lucky(ticket):
     '''
     Определяет, является ли билет счастливым. Билет считается счастливым, если
-    сумма его трех первых и последних цифр равны. Номер билета шестизначный.
-    :param ticket: int
+    сумма его первых и последних цифр равны. Номер билета должен быть
+    четным.
+    :param ticket: int, even
     :return: boolean
     '''
     if type(ticket) != int:
         print("TypeError: argument ticket must be int")
-    elif len(str(ticket)) != 6:
-        print("ValueError: ticket must consist of 6 numbers")
+    elif len(str(ticket)) % 2 != 0:
+        print("ValueError: ticket must even number")
 
     else:
         luck = True
 
-        ticket = list(str(ticket))
-        left = sum([int(i) for i in ticket[0:3]])
-        right = sum([int(i)for i in ticket[3:6]])
+        ticket = str(ticket)
+        left = sum([int(i) for i in ticket[0:(int(len(ticket) / 2))]])
+        right = sum([int(i)for i in ticket[(int(len(ticket) / 2)):]])
 
         if left != right:
             luck = False
         return luck
+
 
