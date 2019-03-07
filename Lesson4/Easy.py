@@ -25,3 +25,18 @@ fruit_list2 = ["мандарин", "яблоко", "груша", "апельси
 fruit_intersection = [fruit for fruit in fruit_list1 if fruit in fruit_list2]
 
 print(fruit_intersection)
+
+
+# Задание-3:
+# Дан список, заполненный произвольными числами.
+# Получить список из элементов исходного, удовлетворяющих следующим условиям:
+# + Элемент кратен 3
+# + Элемент положительный
+# + Элемент не кратен 4
+
+source_list = [1, 5, -3, 6, -7, 10, 24, 3, -1, 2, 7, 4, 0, 15]
+
+new_list = [numb for numb in source_list if numb % 3 == 0 and numb > 0 and
+            numb % 4 != 0]
+
+print(new_list)
