@@ -10,35 +10,43 @@ __author__ = 'Узунов Дмитрий'
 # в вышезаполненном файле.
 
 
-# import random
-#
-# with open("numbers.txt", 'w', encoding='UTF-8') as f:
-#     f.write(''.join([random.choice(list('123456789')) for i in range(2501)]))
-#
-# with open("numbers.txt", 'r', encoding='UTF-8') as f:
-#     numb_list = list(f.read())
-#     list_int = []
-#     list_same = []
-#     max_len = []
-#     for i in numb_list:
-#         list_int.append(int(i))
-#     j = 0
-#     while j < len(list_int[:-1]):
-#         if list_int[j] == list_int[j + 1]:
-#             list_same.append(list_int[j])
-#             if len(list_same) > len(max_len):
-#                 max_len = list_same.copy()
-#         j += 1
-#     print(max_len)
+import random
+
+with open("numbers.txt", 'w', encoding='UTF-8') as f:
+    f.write(''.join([random.choice(list('123456789')) for i in range(2501)]))
+
+with open("numbers.txt", 'r', encoding='UTF-8') as f:
+    numb_str = f.read()
+    list_temp = []
+    list_same = []
+    strin = ""
+    j = 0
+
+    while j < len(numb_str[:-1]):
+        if numb_str[j] == numb_str[j + 1]:  #  Ищем начало последовательности
+            while numb_str[j] == numb_str[j + 1]:  #  Пока есть последоват-сть
+                list_temp.append(numb_str[j])  #  добавляем одинаковые цыфры
+                strin = ''.join(list_temp)  #  сливаем в строку, чтобы добавить
+                j += 1                      #  потом в список
+            list_same.append(strin)         #  добавляем строку посл. в список
+            list_temp = []                  #  обнуляем временный список
+        j += 1
+
+    max_same = ""
+    for i in list_same:
+        if len(i) > len(max_same):
+            max_same = i
+
+    print(max_same)
 
 
 
 
 
-# Задание-2
-# Сформировать квадратную матрицу, в каждой строке которой находится ровно один
-# ноль на случайном месте, остальные элементы тоже рандомные.
-# Пользователь вводит размер
+Задание-2
+Сформировать квадратную матрицу, в каждой строке которой находится ровно один
+ноль на случайном месте, остальные элементы тоже рандомные.
+Пользователь вводит размер
 
 
 import random
@@ -56,4 +64,6 @@ for row in range(i):
     matrix.append(row)
 
 pprint.pprint(matrix)
+
+
 
