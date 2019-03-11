@@ -1,11 +1,13 @@
 __author__ = 'Узунов Дмитрий'
 
-#NORMAL
+# NORMAL
 
 # Написать две программы:
-# Одна принимает через argparse число N и текст S и в цикле N раз выводит S в консоль
+# Одна принимает через argparse число N и текст S и в цикле N раз выводит S в
+# консоль
 # А вторая программа принимает через input число M
-# И указанное кол-во раз спрашивает через input N и S и запускает первую программу через os.system
+# И указанное кол-во раз спрашивает через input N и S и запускает первую
+# программу через os.system
 
 # 2 программа
 
@@ -40,15 +42,13 @@ for i in range(m):
     args = ["python", "n_print_s.py", f"{n}", s]
     subprocess.call(args)
 
-
-
 # 1 программа
 
 # имя программы: n_print_s.py
 import argparse
 
-parser = argparse.ArgumentParser(description= "Печатальщик переданного "
-                                              "текста N раз")
+parser = argparse.ArgumentParser(description="Печатальщик переданного "
+                                             "текста N раз")
 parser.add_argument('n', type=int, help="Число повторений вывода")
 parser.add_argument('s', type=str, help="Текс для вывода")
 args = parser.parse_args()
