@@ -49,18 +49,18 @@ with open("numbers.txt", 'w', encoding='UTF-8') as f:
 # Пользователь вводит размер
 
 
-# import pprint
-# import random
-#
-# i = int(input("Введите число строк: "))
-# j = int(input("Введите число столбцов: "))
-# matrix = []
-#
-# for row in range(i):
-#     row = []
-#     for el in range(j):
-#         row.append(random.randint(0, 99))
-#     row[random.randint(0, j - 1)] = 0  # вставляем в строку 0 рандомно
-#     matrix.append(row)
-#
-# pprint.pprint(matrix)
+import pprint
+import random
+
+i = int(input("Введите число строк: "))
+j = int(input("Введите число столбцов: "))
+matrix = []
+
+for row in range(i):
+    row = []
+    for el in range(j):
+        row.append(random.randint(0, 99))
+    row[random.randint(0, j - 1)] = 0  # вставляем в строку 0 рандомно
+    matrix.append(row)
+
+pprint.pprint(matrix)
