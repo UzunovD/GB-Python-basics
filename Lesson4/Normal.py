@@ -1,5 +1,6 @@
 __author__ = 'Узунов Дмитрий'
 
+
 # NORMAL
 # Задание-1:
 # Напишите скрипт, заполняющий указанный файл (самостоятельно задайте имя файла)
@@ -8,35 +9,39 @@ __author__ = 'Узунов Дмитрий'
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
 
+def get_random_nubers(length: int) -> str:
+    import random
 
-import random
+    return ''.join([random.choice(list('123456789')) for _ in range(length)])
 
-with open("numbers.txt", 'w', encoding='UTF-8') as f:
-    f.write(''.join([random.choice(list('123456789')) for i in range(2501)]))
 
-with open("numbers.txt", 'r', encoding='UTF-8') as f:
-    numb_str = f.read()
+def get_longest_sequence(numbers: str) -> str:
     list_temp = []
     list_same = []
-    str_temp = ""
     j = 0
 
-    while j < len(numb_str[:-1]):
-        if numb_str[j] == numb_str[j + 1]:  # Ищем начало последовательности
-            while numb_str[j] == numb_str[j + 1]:  # Пока есть последоват-сть
-                list_temp.append(numb_str[j])  # добавляем одинаковые цыфры
+    while j < len(numbers[:-1]):
+        if numbers[j] == numbers[j + 1]:  # Ищем начало последовательности
+            while numbers[j] == numbers[j + 1]:  # Пока есть последоват-сть
+                list_temp.append(numbers[j])  # добавляем одинаковые цыфры
                 str_temp = ''.join(list_temp)  # сливаем в строку, чтобы
-                j += 1                         # добавить потом в список
+                j += 1  # добавить потом в список
             list_same.append(str_temp)  # добавляем строку последов. в список
-            list_temp = []              # обнуляем временный список
+            list_temp = []  # обнуляем временный список
         j += 1
 
-    max_same = ""  # выбираем самую долгую последов-ть
+    max_same = ""  # выбираем самую длинную последов-ть
     for i in list_same:
         if len(i) > len(max_same):
             max_same = i
 
-    print(max_same)
+    return max_same
+
+
+with open("numbers.txt", 'w', encoding='UTF-8') as f:
+    nums = get_random_nubers(int(input("Введите длинну числа: ")))
+    f.write(nums)
+    print(get_longest_sequence(nums))
 
 # Задание-2
 # Сформировать квадратную матрицу, в каждой строке которой находится ровно один
@@ -44,18 +49,18 @@ with open("numbers.txt", 'r', encoding='UTF-8') as f:
 # Пользователь вводит размер
 
 
-import random
-import pprint
-
-i = int(input("Введите число строк: "))
-j = int(input("Введите число столбцов: "))
-matrix = []
-
-for row in range(i):
-    row = []
-    for el in range(j):
-        row.append(random.randint(0, 99))
-    row[random.randint(0, j - 1)] = 0  # вставляем в строку 0 рандомно
-    matrix.append(row)
-
-pprint.pprint(matrix)
+# import pprint
+# import random
+#
+# i = int(input("Введите число строк: "))
+# j = int(input("Введите число столбцов: "))
+# matrix = []
+#
+# for row in range(i):
+#     row = []
+#     for el in range(j):
+#         row.append(random.randint(0, 99))
+#     row[random.randint(0, j - 1)] = 0  # вставляем в строку 0 рандомно
+#     matrix.append(row)
+#
+# pprint.pprint(matrix)
