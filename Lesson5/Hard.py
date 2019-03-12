@@ -25,5 +25,5 @@ dirs = os.listdir(PATH)
 dirs_2 = dirs[:]
 for i in dirs_2:                # если папка и эта папка пуста - удаляем папку
     if os.path.isdir(os.path.join(PATH, i)
-                     ) and len(os.listdir(os.path.join(PATH, i))) == 0:
+                     ) and os.listdir(os.path.join(PATH, i)) == []:
         os.rmdir(i)
