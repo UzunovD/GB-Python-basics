@@ -24,7 +24,7 @@ def pl2_coins() -> int:
 
 
 
-coins = 15
+coins = 25
 print("coins ", coins)
 
 while coins > 0:
@@ -65,6 +65,18 @@ while coins > 0:
 # 8
 
 
+def write_file_dic(dic: dict):
+    for key in dict.keys(dic):
+        with open(f'{key}.txt', 'w', encoding='utf-8') as f:
+            for i in dic[key]:
+                f.write(f"{i}" + '\n')
+
+
+write_file_dic({
+    "Name":[3,1,2,3,4],
+    "Surname":[3,4,5,6,7,8],
+    "Fathername":[3,4,5,6,7,8]
+})
 
 # Задание***
 # Написать класс, который занимается выпечкой тортов.
